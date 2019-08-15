@@ -1,4 +1,4 @@
-#DNNorDermatologist Supporting code:
+DNN or Dermatologist Supporting code:
 
 Link to Arxiv Goes Here
 
