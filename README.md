@@ -1,5 +1,7 @@
-#DNNorDermatologist
-Supporting code: &lt;url>
-License ()
+#DNNorDermatologist Supporting code:
 
-Sample Bibtex file{}
+Link to Arxiv Goes Here
+
+License goes here
+
+Sample bibtex file goes here 
