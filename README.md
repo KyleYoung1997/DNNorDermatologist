@@ -1,2 +1,5 @@
-# DNN-or-Dermatologist---Supporting-Code
+#DNNorDermatologist
 Supporting code: &lt;url>
+License ()
+
+Sample Bibtex file{}
