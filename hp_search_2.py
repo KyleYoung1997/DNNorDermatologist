@@ -119,7 +119,7 @@ for i in range(aug_len):
 # separate data into validation and training sets
 # randomly sample n_samples of class nev and class mel, collect into sets 
 # of n_trials for training the models
-
+# NB: While total data seeds was 30 - as random sampling is used it was decided to use 15 seeds and run two searches in parallel. 
 n_trials = 15
 #n_epochs = 10
 
