@@ -13,7 +13,6 @@ from keras.applications.inception_v3 import InceptionV3
 from keras.layers import Dense, BatchNormalization, MaxPooling2D, GlobalAveragePooling2D, Dropout
 from keras.models import Model, load_model
 from keras.optimizers import Adam, SGD
-from keras.preprocessing.image import ImageDataGenerator
 from keras.utils import generic_utils # For progress bar
 
 import keras.backend as K
@@ -35,11 +34,6 @@ import copy
 
 from sklearn.metrics import roc_auc_score
 
-def auc(y_true, y_pred):
-    return tf.numpy_function(roc_auc_score, (y_true, y_pred), tf.double)
-
-
-print('here')
 
 #prepare dataset
 
@@ -119,14 +113,15 @@ for i in range(aug_len):
 # separate data into validation and training sets
 # randomly sample n_samples of class nev and class mel, collect into sets 
 # of n_trials for training the models
-# NB: While total data seeds was 30 - as random sampling is used it was decided to use 15 seeds and run two searches in parallel. 
+
+
+#30 models were returned - this file was ran twice in parallel (Random sampling for the data seeds)
 n_trials = 15
 #n_epochs = 10
 
 try:
   y = y.values
 except:
-  # print(y)
   pass
 
 nsamples = y[y == "mel"].shape[0] * 2
@@ -177,24 +172,10 @@ for seed in range(n_trials):
   
   data_splits[seed] = [X_train, y_train, X_test, y_test]
 
-# old way of splitting the data
-#   X_train, X_test, y_train, y_test = train_test_split(X, y,
-#         test_size=0.1, random_state=seed, shuffle=True)
-
-
-# del X
-# del y
-
-# determine class weights. There are many more naevi than melanoma in the dataset. 
-#This means we will need to reward the network more for accuractely identifying melanoma than for naevus, the class weights determine the correct proportion.
-
-#class_weights = class_weight.compute_class_weight('balanced',
-        #np.unique(y_train), y_train)
-#print(class_weights)
 
 
 
-# np.save("/content/drive/My Drive/Colab Notebooks/trial_0_X_test.npy", data_splits[0][2])
+
 np.save("/scratch/smp/s4396046/project/trial_0_y_test.npy", data_splits[0][3], allow_pickle=True)
 
 """**4. Build classifier**"""
@@ -210,7 +191,7 @@ space = [Real(1e-6, 0.01, "log-uniform", name='learning_rate'),
           Real(0.8, 1.0, name='momentum'),
           Real(0.9, 1.0, name='beta_1'),
           Real(0.99, 1.0, name='beta_2'),
-          Integer(low=9,high=20, name = 'epochs'),
+          Integer(low=5,high=20, name = 'epochs'),
           Integer(low=50, high=225, name='num_dense_nodes'),
           Categorical(categories=['SGD', 'Adam'],
                              name='optimizer_type')
@@ -230,7 +211,7 @@ space = [Real(1e-6, 0.01, "log-uniform", name='learning_rate'),
 
 def make_model(learning_rate, dropout, momentum, beta_1, beta_2,
                num_dense_nodes, optimizer_type):
-  # Create inception model with our input shape and max pooling
+  # Create inception model with our input shape
   base_model = InceptionV3(weights='imagenet',
           input_shape=(224, 224, 3), include_top=False)
 
@@ -249,15 +230,13 @@ def make_model(learning_rate, dropout, momentum, beta_1, beta_2,
 
   model.compile(loss='binary_crossentropy',
           optimizer=optimizer,
-          metrics=['accuracy'])#, auc])
+          metrics=['accuracy'])
   return model
 
 
 
-# Run this cell if you'd like to do trials with different data seeds
-# instead of just one run through with all the data and unbalanced classe
 
-#n_epochs = 10
+
 batch_size = 32
 best_accuracy = {} 
 for seed in range(n_trials):
@@ -334,32 +313,10 @@ for seed in range(n_trials):
   search_result = gp_minimize(func=fitness,
                             dimensions=space,
                             acq_func='EI', # Expected Improvement.
-                            n_calls=25 ,
-			    n_random_starts = 7,
+                            n_calls=30,
+			    n_random_starts = 10,
                             verbose = True)
   print('Seed: ',seed)
-  print("BEST ACCURACY: ", best_accuracy)#, "BEST AUC (for best accuracy): ", best_auc)
-  space_res = search_result.space
+  print("BEST ACCURACY: ", best_accuracy)
+  #space_res = search_result.space
   print('hyper_params ', search_result.x)
-  #  Uncomment the following for running model training without HP search
-#   history = {"train_acc": [], "test_acc": [], "confusion_matricies": []}
-#   n_epochs = 1
-  
-#   for i in range(n_epochs):
-#     print("epoch:", i)
-#     hist = model.fit_generator(generator.flow(X_train, y_train, batch_size=32),
-#             epochs=1, steps_per_epoch=len(X_train)/16)
-
-#     # Find actual train accuracy
-#     train_loss, train_acc = model.evaluate(X_train, y_train)
-#     print("train:", [train_loss, train_acc])
-
-#     # Find test accuracy
-#     test_loss, test_acc = model.evaluate(X_test, y_test)
-#     print("test", [test_loss, test_acc])
-
-#     # Store train and test accuracy for visualization
-#     history["train_acc"].append(train_acc)
-#     history["test_acc"].append(test_acc)
-
-#   model.save('inception_saved_trial_{}.h5'.format(seed))
