@@ -26,10 +26,6 @@ import tensorflow as tf
 # For plots
 import matplotlib.pyplot as plt
 
-# Dimensionality reduction
-#import umap
-from sklearn.manifold import TSNE
-
 import copy
 
 from sklearn.metrics import roc_auc_score
@@ -38,7 +34,8 @@ from sklearn.metrics import roc_auc_score
 #prepare dataset
 
 import pandas as pd
-path = os.path.join('/scratch/smp/s4396046/project', 'NvAndMelNoDuplicates.zip')
+#path = path training images
+path = os.path.join('PathToDataDirectory', 'FileNameOfTrainingImages')
 
 X_df = pd.read_pickle(path)
 print("X_df.shape =", X_df.shape)
@@ -175,8 +172,8 @@ for seed in range(n_trials):
 
 
 
-
-np.save("/scratch/smp/s4396046/project/trial_0_y_test.npy", data_splits[0][3], allow_pickle=True)
+#Change /PathToOutputFolder to your directory 
+np.save("/PathToOutputDirectory/trial_0_y_test.npy", data_splits[0][3], allow_pickle=True)
 
 """**4. Build classifier**"""
 
@@ -293,8 +290,8 @@ for seed in range(n_trials):
       global best_accuracy
 
       if accuracy > best_accuracy[seed]:
-          # Save the new model to harddisk.
-          model_path = os.path.join('/scratch/smp/s4396046/project', path_best_model)
+          # Save the new model to harddisk, again change /PathToOutputDirectory to your path
+          model_path = os.path.join('/PathToOutputDirectory', path_best_model)
           model.save(model_path)
 	
 
@@ -309,7 +306,7 @@ for seed in range(n_trials):
       K.clear_session()
 
       return -accuracy
-  
+  #This conducts the hyperparameter search over each data split for details see: https://scikit-optimize.github.io/#skopt.gp_minimize
   search_result = gp_minimize(func=fitness,
                             dimensions=space,
                             acq_func='EI', # Expected Improvement.
@@ -318,5 +315,4 @@ for seed in range(n_trials):
                             verbose = True)
   print('Seed: ',seed)
   print("BEST ACCURACY: ", best_accuracy)
-  #space_res = search_result.space
   print('hyper_params ', search_result.x)
