@@ -1,1 +1,2 @@
-Folder contains jupyter notebook and images that were used to generate the SSIM for the randomised layer experiments
+## Randomized Layer Experiments
+This folder contains the results of the randomized layer experiments, used to evaluate the model dependence of the explainability methods (i.e. sanity check #2). All explanations from the model with various amounts of scrabling can be seen in the folders, while the jupyter notebook is used to output the results of these experiments. The results of these experiments are in csv files.
