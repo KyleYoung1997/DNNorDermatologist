@@ -1,6 +1,10 @@
+Supporting code for DNN or Dermatologist? 
+
+
+
 DNN or Dermatologist Supporting code:
 
-Link to Arxiv Goes Here
+Arxiv: http://arxiv.org/abs/1908.06612
 
 Sample bibtex file goes here 
 
