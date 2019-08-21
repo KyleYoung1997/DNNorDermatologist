@@ -1,5 +1,5 @@
 DNN or Dermatologist Supporting code:
- * This page contains all necessary code to replicate the experiments produced in the paper which can be seen below on Arxiv.
+ * This repository contains all necessary code to replicate the experiments produced in the paper which can be seen below on Arxiv.
  * A suggested approach is to start with the "train_and_test_set_creation.ipynb" to recreate the training and testing sets used before training a suite of models using the "DataSplit_HpSearch.py" in which a hyperparameter search is also undertaken. KernelSHAP and GradCAM explanations can then be produced using files contained in the "Shap_GradCAM_Notebooks" directory. Our data analysis code for the sanity checks described in the paper is then contained in "Model_Sensitivity_Experiments" and "Randomised_layer_experiments". 
 
 
