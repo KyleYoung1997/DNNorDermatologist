@@ -10,20 +10,35 @@ Arxiv: http://arxiv.org/abs/1908.06612
 
 Sample Bibtex file: 
 @ARTICLE{2019arXiv190806612Y,
+
        author = {{Young}, Kyle and {Booth}, Gareth and {Simpson}, Becks and
+       
          {Dutton}, Reuben and {Shrapnel}, Sally},
+         
         title = "{Deep neural network or dermatologist?}",
+        
       journal = {arXiv e-prints},
+      
      keywords = {Computer Science - Machine Learning, Electrical Engineering and Systems Science - Image and Video Processing, Statistics - Machine Learning},
+     
          year = "2019",
+         
         month = "Aug",
+        
           eid = {arXiv:1908.06612},
+          
         pages = {arXiv:1908.06612},
+        
 archivePrefix = {arXiv},
+
        eprint = {1908.06612},
+       
  primaryClass = {cs.LG},
+ 
        adsurl = {https://ui.adsabs.harvard.edu/abs/2019arXiv190806612Y},
+       
       adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+      
 }
 
 
