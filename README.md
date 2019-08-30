@@ -10,10 +10,10 @@
 Arxiv: http://arxiv.org/abs/1908.06612
 
 Sample Bibtex file: 
-       @ARTICLE{2019arXiv190806612Y,
 
+       @ARTICLE{2019arXiv190806612Y,
        author = {{Young}, Kyle and {Booth}, Gareth and {Simpson}, Becks and
-       
+   
          {Dutton}, Reuben and {Shrapnel}, Sally},
          
         title = "{Deep neural network or dermatologist?}",
