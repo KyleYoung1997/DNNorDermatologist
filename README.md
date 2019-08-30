@@ -2,7 +2,7 @@
  * This repository contains all necessary code to replicate the experiments in Deep Neural Networks or Dermatologists?: http://arxiv.org/abs/1908.06612.
  * We suggest to start with train_and_test_set_creation.ipynb. 
  * Then train a suite of models using the DataSplit_HpSearch.py file. 
- * Then produce Kernel SHAP and GradCAM explanations: ". 
+ * Then produce Kernel SHAP and GradCAM explanations: "Shap_GradCAM_Notebooks". 
  * Sanity check code is contained in "Model_Sensitivity_Experiments"	and "Randomised_layer_experiments"
 	
 
