@@ -1,7 +1,7 @@
 ## DNN or Dermatologist Supporting code:
  * This repository contains all necessary code to replicate the experiments in Deep Neural Networks or Dermatologists?: http://arxiv.org/abs/1908.06612.
  * We suggest to start with train and test set creation. 
- * Then train a suite of models using the data split .py file. 
+ * Then train a suite of models using the DataSplit_HpSearch.py file. 
  * Then produce Kernel SHAP and GradCAM explanations. 
  * Sanity check code is contained in ""
 
