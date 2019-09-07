@@ -178,7 +178,7 @@ def Shap_single(image, model, gmodel, save = False, filename = None, relative_pa
     # First create an explainer
     explainer = shap.KernelExplainer(f, np.zeros((1,num_seg)))
     # Then generate an explanation using the explainer
-    shap_values = explainer.shap_values(np.ones((1,num_seg)), nsamples=2500) # runs VGG16 (this model) 2000 times
+    shap_values = explainer.shap_values(np.ones((1,num_seg)), nsamples=2500) # runs this model (2500 times)
     
  
     # Get the top predictions from the model
