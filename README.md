@@ -12,25 +12,44 @@ Arxiv: http://arxiv.org/abs/1908.06612
 Sample Bibtex file: 
 
 @InProceedings{10.1007/978-3-030-33850-3_6,
+
 author="Young, Kyle
+
 and Booth, Gareth
+
 and Simpson, Becks
+
 and Dutton, Reuben
+
 and Shrapnel, Sally",
+
 editor="Suzuki, Kenji
+
 and Reyes, Mauricio
+
 and Syeda-Mahmood, Tanveer
+
 and Glocker, Ben
+
 and Wiest, Roland
 and Gur, Yaniv
+
 and Greenspan, Hayit
+
 and Madabhushi, Anant",
+
 title="Deep Neural Network or Dermatologist?",
+
 booktitle="Interpretability of Machine Intelligence in Medical Image Computing and Multimodal Learning for Clinical Decision Support",
+
 year="2019",
+
 publisher="Springer International Publishing",
+
 address="Cham",
+
 pages="48--55",
+
 isbn="978-3-030-33850-3"
 }
    
