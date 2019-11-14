@@ -11,36 +11,29 @@ Arxiv: http://arxiv.org/abs/1908.06612
 
 Sample Bibtex file: 
 
-       @ARTICLE{2019arXiv190806612Y,
-       author = {{Young}, Kyle and {Booth}, Gareth and {Simpson}, Becks and
+@InProceedings{10.1007/978-3-030-33850-3_6,
+author="Young, Kyle
+and Booth, Gareth
+and Simpson, Becks
+and Dutton, Reuben
+and Shrapnel, Sally",
+editor="Suzuki, Kenji
+and Reyes, Mauricio
+and Syeda-Mahmood, Tanveer
+and Glocker, Ben
+and Wiest, Roland
+and Gur, Yaniv
+and Greenspan, Hayit
+and Madabhushi, Anant",
+title="Deep Neural Network or Dermatologist?",
+booktitle="Interpretability of Machine Intelligence in Medical Image Computing and Multimodal Learning for Clinical Decision Support",
+year="2019",
+publisher="Springer International Publishing",
+address="Cham",
+pages="48--55",
+isbn="978-3-030-33850-3"
+}
    
-         {Dutton}, Reuben and {Shrapnel}, Sally},
-         
-        title = "{Deep neural network or dermatologist?}",
-        
-      journal = {arXiv e-prints},
-      
-     keywords = {Computer Science - Machine Learning, Electrical Engineering and Systems Science - Image and Video Processing, Statistics - Machine Learning},
-     
-         year = "2019",
-         
-        month = "Aug",
-        
-          eid = {arXiv:1908.06612},
-          
-        pages = {arXiv:1908.06612},
-        
-       archivePrefix = {arXiv},
-
-       eprint = {1908.06612},
-       
-       primaryClass = {cs.LG},
- 
-       adsurl = {https://ui.adsabs.harvard.edu/abs/2019arXiv190806612Y},
-       
-      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
-      
-       }      
 
 
 ## References
